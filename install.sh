@@ -9,16 +9,16 @@ clear
 
 installTheme(){
     cd /var/www/
-    tar -cvf MinecraftPurpleThemebackup.tar.gz pterodactyl
+    tar -cvf Theme-Remake.tar.gz pterodactyl
     echo "Installing theme..."
     cd /var/www/pterodactyl
-    rm -r MinecraftPurpleTheme
-    git clone https://github.com/Angelillo15/MinecraftPurpleTheme.git
-    cd MinecraftPurpleTheme
-    rm /var/www/pterodactyl/resources/scripts/MinecraftPurpleTheme.css
+    rm -r Theme-Remake
+    git clone https://github.com/CHIKOSY2010/Theme-Remake.git
+    cd Theme-Remake
+    rm /var/www/pterodactyl/resources/scripts/Theme.css
     rm /var/www/pterodactyl/resources/scripts/index.tsx
     mv index.tsx /var/www/pterodactyl/resources/scripts/index.tsx
-    mv MinecraftPurpleTheme.css /var/www/pterodactyl/resources/scripts/MinecraftPurpleTheme.css
+    mv Theme.css /var/www/pterodactyl/resources/scripts/Theme.css
     cd /var/www/pterodactyl
 
     curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -47,24 +47,24 @@ installThemeQuestion(){
 }
 
 repair(){
-    bash <(curl https://raw.githubusercontent.com/Angelillo15/MinecraftPurpleTheme/main/repair.sh)
+    bash <(curl https://raw.githubusercontent.com/CHIKOSY2010/Theme-Remake/main/repair.sh)
 }
 
 restoreBackUp(){
     echo "Restoring backup..."
     cd /var/www/
-    tar -xvf MinecraftPurpleThemebackup.tar.gz
-    rm MinecraftPurpleThemebackup.tar.gz
+    tar -xvf Theme-Remake.tar.gz
+    rm Theme-Remake.tar.gz
 
     cd /var/www/pterodactyl
     yarn build:production
     sudo php artisan optimize:clear
 }
-echo "Copyright (c) 2022 Angelillo15 | angelillo15.es"
+echo "This Theme is Remake Not Original"
 echo "This program is free software: you can redistribute it and/or modify"
 echo ""
-echo "Discord: https://discord.angelillo15.es/"
-echo "Website: https://angelillo15.es/"
+echo "Discord: https://dsc.gg/cokistore"
+echo "Website: https://cokistore.com"
 echo ""
 echo "[1] Install theme"
 echo "[2] Restore backup"
